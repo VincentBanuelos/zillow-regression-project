@@ -147,11 +147,11 @@ def county_test(df):
     if p/2 < alpha and t < 0:
         print('''Reject the Null Hypothesis.
         
-Homes in Los Angeles are LESS expensive than those in either Orange County and Ventura.''')
+Homes in Los Angeles are MORE expensive than those in either Orange County and Ventura.''')
     else:
         print('''Fail to reject the Null Hypothesis.
         
-Homes in Los Angeles are MORE expensive than those in either Orange County and Ventura.''')
+Homes in Los Angeles are LESS expensive than those in either Orange County and Ventura.''')
 
 
 def yb_test(df):
