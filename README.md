@@ -54,7 +54,7 @@ Goal 3: Deliver a report that a data science team can read through and replicate
 
 | Target Attribute | Definition | Data Type |
 | ----- | ----- | ----- |
-| churn | 1 if the customer has churned | int |
+|tax_value|The total tax assessed value of the parcel|float|
 ---
 | Feature | Definition | Data Type |
 | ----- | ----- | ----- |
@@ -69,7 +69,6 @@ Goal 3: Deliver a report that a data science team can read through and replicate
 | yearbuilt |  The Year the principal residence was built| float |
 | poolcnt |  Number of pools on the lot (if any) | float |
 | transactiondate | Date home was sold | datetime |
-|tax_value|The total tax assessed value of the parcel|float|
 | zip | Zipcode of property | float |
 | latitude |  Latitude of the middle of the parcel multiplied by 10e6 | float |
 | longitude |  Longitude of the middle of the parcel multiplied by 10e6 | float |
