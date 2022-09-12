@@ -14,7 +14,6 @@ from sklearn.metrics import r2_score, mean_squared_error, explained_variance_sco
 from sklearn.linear_model import LinearRegression, LassoLars, TweedieRegressor
 from sklearn.preprocessing import PolynomialFeatures
 
-
 train, validate, test = wr.wrangle_zillow()
 
 def scale_data(train, validate, test, target):
