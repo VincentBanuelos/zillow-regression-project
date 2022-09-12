@@ -29,7 +29,7 @@ def plot_categorical_and_continuous_vars(df):
 
 def zillow_lmplot(df):
     """
-    Takes in the train dataframe for the zillow dataset and returns an lmplot
+    Takes in the train dataframe for the train dataset and returns an lmplot
     
     """
     plt.figure(figsize=(12,8))
@@ -38,6 +38,9 @@ def zillow_lmplot(df):
     return
 
 def county_value(df):
+    '''
+    Takes in county and tax_value and returns a histogram plot and a boxplot comparing the two
+    '''
     plt.figure(figsize=(12,8))
     sns.histplot(data=df, x='tax_value', alpha=.8, hue='county',hue_order=['ventura', 'orange', 'los_angeles'],element="step")
     plt.title('Orange County requires the most green')
@@ -52,6 +55,9 @@ def county_value(df):
     return
 
 def yb_graph(df):
+    '''
+    shows the conparison for decade and tax_value
+    '''
     plt.figure(figsize=(12,8))
     sns.histplot(data=df, x='tax_value', alpha=.8, hue='county',hue_order=['ventura', 'orange', 'los_angeles'],element="step")
     plt.title('L.A should be called LAbuela')
@@ -73,7 +79,9 @@ def yb_graph(df):
     return
 
 def bb_graph(df):
-
+    '''
+    shows how bedrooms and bathrooms relate to tax_value
+    '''
     plt.figure(figsize=(12,8))
     sns.boxplot(x='bedrooms', y='tax_value', data=df)
     plt.title('Tax Value Increase w/ the Number of Bedrooms')

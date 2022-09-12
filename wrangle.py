@@ -18,7 +18,9 @@ warnings.filterwarnings("ignore")
 ####################################################################################################ACQUIRE##############################################################################################################################
 
 def get_zillow():
-
+    '''
+    Pulls data from codeup database and writes into a dataframe
+    '''
     if os.path.isfile('zillow.csv'):
         return pd.read_csv('zillow.csv', index_col=0)
     
@@ -46,6 +48,9 @@ def get_zillow():
 
 ####################################################################################################PREPARE##############################################################################################################################
 def decades(x):
+    '''
+    will be used to seperate yearbuilt column into decades
+    '''
     if x > 1899 and x < 1910:
         return 1900
     if x > 1909 and x < 1920:
@@ -125,8 +130,9 @@ def prep_zillow(df):
     return df
 
 def remove_outliers(df, k, col_list):
-    ''' remove outliers from a list of columns in a dataframe 
-        and return that dataframe
+    ''' 
+    remove outliers from a list of columns in a dataframe 
+    and return that dataframe
     '''
     
     for col in col_list:
@@ -148,7 +154,9 @@ def remove_outliers(df, k, col_list):
 
 
 def wrangle_zillow():
-
+    '''
+    combines the acquisition and preparation into one function and returns a dataframe
+    '''
     df = get_zillow()
     df = prep_zillow(df)
     col_list = ['bathrooms', 'bedrooms', 'sqft', 'lotsize', 'yearbuilt', 'tax_value']

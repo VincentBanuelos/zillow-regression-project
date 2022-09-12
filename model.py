@@ -18,7 +18,7 @@ train, validate, test = wr.wrangle_zillow()
 
 def scale_data(train, validate, test, target):
     '''
-    
+    scales data to prepare for modeling
     '''
     X_train, y_train, X_validate, y_validate, X_test, y_test = wr.xy_tvt_split(train, validate, test, target)
     
@@ -41,6 +41,9 @@ def scale_data(train, validate, test, target):
 
 
 def corr_graph():
+    '''
+    graphs heatmap to show correlation
+    '''
     train_corr = train.corr()
     plt.figure(figsize=(12,8))
     sns.heatmap(train_corr, cmap='Blues', annot = True, mask= np.triu(train_corr), linewidth=.5)
@@ -48,6 +51,9 @@ def corr_graph():
 
 
 def run_da_stuff(X_train_scaled,y_train,X_validate_scaled,y_validate):
+    '''
+    returns results for different model types for train and validate dataset
+    '''
     pred_mean = y_train.tax_value.mean()
     y_train['pred_mean'] = pred_mean
     y_validate['pred_mean'] = pred_mean
@@ -119,7 +125,7 @@ def run_da_stuff(X_train_scaled,y_train,X_validate_scaled,y_validate):
 def test_tester(X_train_scaled,y_train,X_validate_scaled,y_validate,X_test_scaled,y_test):
     ''' 
     This function takes in the X and y objects and then runs and returns a DataFrame of
-    results for the Quadradic Linear Regression Model. 
+    results for the Tweedie Regressor model 
     '''
 
    # create the model object
