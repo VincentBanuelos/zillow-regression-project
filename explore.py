@@ -73,52 +73,17 @@ def yb_graph(df):
     return
 
 def bb_graph(df):
+
     plt.figure(figsize=(12,8))
-    sns.histplot(data=df, x='tax_value', alpha=.8, hue='bedrooms',element="step")
-    plt.axvline(x=df[df.bedrooms == 0].tax_value.median(), color='darkblue', linestyle='--')
-
-    sns.histplot(data=df[df.bedrooms == 1], x='tax_value', label = '1 bedroom', color='slateblue')
-    plt.axvline(x=df[df.bedrooms == 1].tax_value.median(), color='slateblue', linestyle='--')
-
-    sns.histplot(data=df[df.bedrooms == 2], x='tax_value', label = '2 bedrooms', color='rebeccapurple')
-    plt.axvline(x=df[df.bedrooms == 2].tax_value.median(), color='rebeccapurple', linestyle='--')
-
-    sns.histplot(data=df[df.bedrooms == 3], x='tax_value', label = '3 bedrooms', color='darkviolet')
-    plt.axvline(x=df[df.bedrooms == 3].tax_value.median(), color='darkviolet', linestyle='--')
-
-    sns.histplot(data=df[df.bedrooms == 4], x='tax_value', label = '4 bedrooms', color='violet')
-    plt.axvline(x=df[df.bedrooms == 4].tax_value.median(), color='violet', linestyle='--')
-    
-    sns.histplot(data=df[df.bedrooms == 5], x='tax_value', label = '5 bedrooms', color='fuchsia')
-    plt.axvline(x=df[df.bedrooms == 5].tax_value.median(), color='fuchsia', linestyle='--')
-
+    sns.boxplot(x='bedrooms', y='tax_value', data=df)
     plt.title('Tax Value Increase w/ the Number of Bedrooms')
-    plt.legend()
     plt.show()
     
     print()
     
     plt.figure(figsize=(12,8))
-    sns.histplot(data=df[df.bathrooms == 0], x='tax_value', label = '0 bathrooms', color='darkolivegreen')
-    plt.axvline(x=df[df.bathrooms == 0].tax_value.median(), color='darkolivegreen', linestyle='--')
-
-    sns.histplot(data=df[df.bathrooms == 1], x='tax_value', label = '1 bathroom', color='chartreuse')
-    plt.axvline(x=df[df.bathrooms == 1].tax_value.median(), color='chartreuse', linestyle='--')
-
-    sns.histplot(data=df[df.bathrooms == 2], x='tax_value', label = '2 bathrooms', color='forestgreen')
-    plt.axvline(x=df[df.bathrooms == 2].tax_value.median(), color='forestgreen', linestyle='--')
-
-    sns.histplot(data=df[df.bathrooms == 3], x='tax_value', label = '3 bathrooms', color='green')
-    plt.axvline(x=df[df.bathrooms == 3].tax_value.median(), color='green', linestyle='--')
-
-    sns.histplot(data=df[df.bathrooms == 4], x='tax_value', label = '4 bathrooms', color='springgreen')
-    plt.axvline(x=df[df.bathrooms == 4].tax_value.median(), color='springgreen', linestyle='--')
-    
-    sns.histplot(data=df[df.bathrooms == 5], x='tax_value', label = '5 bathrooms', color='aquamarine')
-    plt.axvline(x=df[df.bathrooms == 5].tax_value.median(), color='aquamarine', linestyle='--')
-
+    sns.boxplot(x='bathrooms', y='tax_value', data=df)
     plt.title('Tax Value Increase w/ the Number of Bathrooms')
-    plt.legend()
     plt.show()
 
 
